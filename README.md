@@ -110,7 +110,7 @@ python evaluate.py --evaluate_file_path [path to output jsonl file] --lang [lang
 
 ## 📄 Acknowledge
 
-- The repo is contributed by Xingyu Wang, Shuo Guo, and Yangning Li. 
+- The repo is contributed by Xinyu Wang, Shuo Guo, Zheng Zhang and Yangning Li. 
 - This work was inspired by ReACT, SelfAsk, FleshLLMs. Sincere thanks for their efforts. 
 
 ## 📝 Citation
@@ -118,7 +118,7 @@ python evaluate.py --evaluate_file_path [path to output jsonl file] --lang [lang
 ```bigquery
 @article{li2024benchmarkingmultimodalretrievalaugmented,
       title={Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-adaptive Planning Agent}, 
-      author={Yangning Li and Yinghui Li and Xingyu Wang and Yong Jiang and Zhen Zhang and Xinran Zheng and Hui Wang and Hai-Tao Zheng and Philip S. Yu and Fei Huang and Jingren Zhou},
+      author={Yangning Li and Yinghui Li and Xinyu Wang and Yong Jiang and Zhen Zhang and Xinran Zheng and Hui Wang and Hai-Tao Zheng and Pengjun Xie and Philip S. Yu and Fei Huang and Jingren Zhou},
       year={2024},
       eprint={2411.02937},
       archivePrefix={arXiv},

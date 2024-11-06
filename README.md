@@ -1,11 +1,12 @@
 <div align="center">
 <img src="IMG/logo.png" width="55%">
 </div>
+
 # A Self-Adaptive Planning Agent For Multimodal RAG
 
-![](https://img.shields.io/badge/version-1.0.0-blue)[![Pytorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?e&logo=PyTorch&logoColor=white)](https://pytorch.org/)[![arxiv badge](https://img.shields.io/badge/arxiv-2308.06966-red)](https://arxiv.org/pdf/2308.06966.pdf)
+![](https://img.shields.io/badge/version-1.0.0-blue)[![Pytorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?e&logo=PyTorch&logoColor=white)](https://pytorch.org/)[![arxiv badge](https://img.shields.io/badge/arxiv-2411.02937-red)](https://arxiv.org/abs/2411.02937)
 
-Repo for [*Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-adaptive Planning Agent*](https://arxiv.org/pdf/xxxx.xx)
+Repo for [*Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-adaptive Planning Agent*](https://arxiv.org/abs/2411.02937)
 
 - We propose OmniSearch, a self-adaptive retrieval agent that plans each retrieval action in real-time according to question solution stage and current retrieval content. As far as we known, **OmniSearch is the first planning agent for multimodal RAG.**
 - We reveal that existing VQA-based mRAG benchmarks fail to reflect the feature that real-world questions require dynamic knowledge retrieval, and propose novel **Dyn-VQA dataset, which contains three types of dynamic questions.**
@@ -14,7 +15,7 @@ Repo for [*Benchmarking Multimodal Retrieval Augmented Generation with Dynamic V
 
 
 <div align="center">
-    <img src="IMG/method4.pdf" width="80%" height="auto" />
+    <img src="IMG/method4.jpg" width="80%" height="auto" />
 </div>
 
 
@@ -41,7 +42,7 @@ The json item of Dyn-VQA dataset is organized in the following format:
 }
 ```
 
-🔥 The Dyn-VQA **will be updated regularly.**
+🔥 The Dyn-VQA **will be updated regularly.** Laset version: 202410.
 
 # 🛠 Dependencies
 
@@ -58,7 +59,7 @@ pip install -r requirement.txt
 - google-search-results = 2.4.2
 - serpapi = 0.1.5
 
-# 💻 Running Instructions of OmniSearch
+# 💻 Running OmniSearch
 
 We have release the code of GPT-4V-based OmniSearch for English questions.
 
@@ -115,8 +116,14 @@ python evaluate.py --evaluate_file_path [path to output jsonl file] --lang [lang
 ## 📝 Citation
 
 ```bigquery
-@article{xxxxxxx,
-  title={xxxxxxxxxx
+@article{li2024benchmarkingmultimodalretrievalaugmented,
+      title={Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-adaptive Planning Agent}, 
+      author={Yangning Li and Yinghui Li and Xingyu Wang and Yong Jiang and Zhen Zhang and Xinran Zheng and Hui Wang and Hai-Tao Zheng and Philip S. Yu and Fei Huang and Jingren Zhou},
+      year={2024},
+      eprint={2411.02937},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2411.02937}, 
 }
 ```
 

@@ -8,6 +8,10 @@
 
 Repo for [*Benchmarking Multimodal Retrieval Augmented Generation with Dynamic VQA Dataset and Self-adaptive Planning Agent*](https://arxiv.org/abs/2411.02937)
 
+🌏 The **Web Demo** is avaiable at [ModelScope](https://modelscope.cn/studios/iic/OmniSearch/summary?header=default&fullWidth=false) now！
+
+<img src="IMG/ask_test_2.5.gif" width="799" height=530>
+
 - We propose OmniSearch, a self-adaptive retrieval agent that plans each retrieval action in real-time according to question solution stage and current retrieval content. As far as we known, **OmniSearch is the first planning agent for multimodal RAG.**
 - We reveal that existing VQA-based mRAG benchmarks fail to reflect the feature that real-world questions require dynamic knowledge retrieval, and propose novel **Dyn-VQA dataset, which contains three types of dynamic questions.**
 - We **benchmark various mRAG methods** with leading MLLMs on Dyn-VQA, demonstrating their flaw in providing sufficient and relevant knowledge for dynamic questions.
@@ -89,10 +93,6 @@ Run the `main.py` file:
 ```bash
 python main.py --test_dataset 'path/to/dataset.jsonl' --dataset_name NAME --meta_save_path 'path/to/results'
 ```
-
-🌏 The **Web Demo** is avaiable at [ModelScope](https://modelscope.cn/studios/iic/OmniSearch/summary?header=default&fullWidth=false) now！
-
-<img src="IMG/ask_test_2.5.gif" width="799" height=530>
 
 # 🔍 Evaluation
 

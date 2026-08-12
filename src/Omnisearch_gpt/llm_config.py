@@ -8,7 +8,7 @@ LIMIT = 1000000000000
 retry_attempt = 10
 
 
-def call_gpt(model, messages, idx, headers ):
+def call_gpt(model, messages, idx, headers, base_url):
     # 准备请求数据，包括模型、对话信息等参数
     data = {
         "model": model,
@@ -22,8 +22,7 @@ def call_gpt(model, messages, idx, headers ):
         try:
 
             r = requests.post(
-                #'https://api.chatanywhere.tech/v1/chat/completions', 
-                'https://api.openai.com/v1/chat/completions',
+                f"{base_url.rstrip('/')}/chat/completions",
                 json=data,
                 headers=headers
             )

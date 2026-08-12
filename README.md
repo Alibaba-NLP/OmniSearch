@@ -71,12 +71,12 @@ pip install -r requirement.txt
 
 We have release the code of GPT-4V-based OmniSearch for English questions.
 
-Before running, please replace with your own OPENAI key and Google_search key. OPENAI key is at 11-th line of main.py 
+Before running, set your MiniMax API key and Google Search key. The MiniMax key is configured in `main.py`:
 
 ```python
-GPT_API_KEY = "your_actual_key_here"
+MINIMAX_API_KEY = "your_actual_key_here"
 headers = {
-    "Authorization": f"Bearer {GPT_API_KEY}"
+    "Authorization": f"Bearer {MINIMAX_API_KEY}"
 }
 ```
 
@@ -95,8 +95,10 @@ output_path = os.path.join(meta_save_path, dataset_name, "output_from_gpt4v.json
 Run the `main.py` file:
 
 ```bash
-python main.py --test_dataset 'path/to/dataset.jsonl' --dataset_name NAME --meta_save_path 'path/to/results'
+python main.py --test_dataset 'path/to/dataset.jsonl' --dataset_name NAME --meta_save_path 'path/to/results' --model MiniMax-M3 --region global_en
 ```
+
+Use `--region cn_zh` for the mainland China endpoint. The available models are `MiniMax-M3` and `MiniMax-M2.7`.
 
 - Qwen-VL-based OmniSearch
 

@@ -6,12 +6,17 @@ import asyncio
 import argparse
 from agent import QAAgent
 from conversation_manager import ConversationManager
-from model_config import MINIMAX_MODELS
+from model_config import (
+    MINIMAX_DEFAULT_MODEL,
+    MINIMAX_DEFAULT_REGION,
+    MINIMAX_MODELS,
+    MINIMAX_REGIONAL_ENDPOINTS,
+)
 
-model = "gpt-4o"
-GPT_API_KEY = ""
+model = MINIMAX_DEFAULT_MODEL
+MINIMAX_API_KEY = ""
 headers = {
-    "Authorization": f"Bearer {GPT_API_KEY}"
+    "Authorization": f"Bearer {MINIMAX_API_KEY}"
 }
 
 meta_save_path = './vfreshqa_datasets_v2/'#保存地址
@@ -39,11 +44,21 @@ def process_item(item, conversation_manager, meta_save_path, dataset_name):
     output_path = os.path.join(meta_save_path, dataset_name, "output_from_gpt4v.jsonl")
     safe_write(output_path, item)
 
-def main(test_dataset, dataset_name, meta_save_path, model_name=model):
+def main(
+    test_dataset,
+    dataset_name,
+    meta_save_path,
+    model_name=model,
+    region=MINIMAX_DEFAULT_REGION,
+):
     
     num_threads = 1
 
-    qa_agent = QAAgent(model=model_name, headers=headers)
+    qa_agent = QAAgent(
+        model=model_name,
+        headers=headers,
+        base_url=MINIMAX_REGIONAL_ENDPOINTS[region]["openai_base_url"],
+    )
 
     with open(test_dataset, "r", encoding="utf-8") as f:
         datas = [json.loads(line) for line in f.readlines()]
@@ -73,14 +88,28 @@ if __name__ == "__main__":
         "--model",
         type=str,
         default=model,
+        choices=MINIMAX_MODELS,
         help=(
-            "Model ID for the chat completions API. Available MiniMax models: "
+            "MiniMax model ID. Available models: "
             + ", ".join(MINIMAX_MODELS)
         ),
+    )
+    parser.add_argument(
+        "--region",
+        type=str,
+        default=MINIMAX_DEFAULT_REGION,
+        choices=MINIMAX_REGIONAL_ENDPOINTS,
+        help="MiniMax API region.",
     )
     
 
     args = parser.parse_args()
 
     # 调用 main 函数并传递解析后的参数
-    main(args.test_dataset, args.dataset_name, args.meta_save_path, args.model)
+    main(
+        args.test_dataset,
+        args.dataset_name,
+        args.meta_save_path,
+        args.model,
+        args.region,
+    )

@@ -95,10 +95,10 @@ output_path = os.path.join(meta_save_path, dataset_name, "output_from_gpt4v.json
 Run the `main.py` file:
 
 ```bash
-python main.py --test_dataset 'path/to/dataset.jsonl' --dataset_name NAME --meta_save_path 'path/to/results' --model MiniMax-M3 --region global_en
+python main.py --test_dataset 'path/to/dataset.jsonl' --dataset_name NAME --meta_save_path 'path/to/results' --model MiniMax-M3.1-Flash --region global_en
 ```
 
-Use `--region cn_zh` for the mainland China endpoint. The available models are `MiniMax-M3` and `MiniMax-M2.7`.
+Use `--region cn_zh` for the mainland China endpoint. The current models are `MiniMax-M3.1-Flash` (the default) and `MiniMax-M3`. An explicit `--model` value is passed through unchanged, including legacy or custom model IDs. Requests use the API's default adaptive thinking; Flash defaults to `max` reasoning effort. The existing 4096-token response limit includes thinking tokens, so longer reasoning can exhaust it before producing an answer.
 
 - Qwen-VL-based OmniSearch
 

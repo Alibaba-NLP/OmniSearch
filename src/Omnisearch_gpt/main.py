@@ -88,10 +88,10 @@ if __name__ == "__main__":
         "--model",
         type=str,
         default=model,
-        choices=MINIMAX_MODELS,
         help=(
-            "MiniMax model ID. Available models: "
+            "MiniMax model ID. Current models: "
             + ", ".join(MINIMAX_MODELS)
+            + ". Explicit legacy or custom model IDs are passed through unchanged."
         ),
     )
     parser.add_argument(
